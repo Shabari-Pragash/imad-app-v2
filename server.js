@@ -5,24 +5,79 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles= {
+'article-one': {
+    title:'Article-One',
+    heading:'Article-One',
+    date:'18 Feb 2017',
+    content:'This is my first article'
+    },
+'article-two': {
+    title:'Article-Two',
+    heading:'Article-Two',
+    date:'19 Feb 2017',
+    content:'This is my second article'
+    },   
+'article-three': {
+    title:'Article-Three',
+    heading:'Article-Three',
+    date:'20 Feb 2017',
+    content:'This is my third article'
+    }
+};    
+
+function createTemplate(data)
+{
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmlTemplate=`
+    <html>
+        <head>
+            <title>
+                $(title) | Shabari Pragash
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>    
+        <body>
+            <div class="container">
+                <div>
+                <a href="/">Home</a>
+                </div>
+                
+                <hr/>
+                
+                <div>
+                <h1>$(heading)</h1>
+                </div>
+                
+                <div>($date)</div>
+                
+                <div>Shabari Pragash</div>
+                
+                <div>
+                    <p>$(content)</p>
+                </div>
+                </div>
+        </body>
+        </html>
+    `;
+    return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res) {
-   res.sendFile(path.join(__dirname,'ui','article-one.html'));
+app.get('/:articleName',function(req,res) {
+    var articleName=req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
+   //res.sendFile(path.join(__dirname,'ui','article-one.html'));
    //res.send('Article-one is served here');
 });
 
-app.get('/article-two',function(req,res) {
-    res.sendFile(path.join(__dirname,'ui','article-two.html'));
-   //res.send('Article-two is served here');
-});
-
-app.get('/article-three',function(req,res) {
-    res.sendFile(path.join(__dirname,'ui','article-three.html'));
-   //res.send('Article-three is served here');
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
