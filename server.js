@@ -36,7 +36,7 @@ function createTemplate(data)
     <html>
         <head>
             <title>
-                $(title) | Shabari Pragash
+                ${title} | Shabari Pragash
             </title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link href="/ui/style.css" rel="stylesheet" />
@@ -50,15 +50,21 @@ function createTemplate(data)
                 <hr/>
                 
                 <div>
-                <h1>$(heading)</h1>
+                <h1>
+                    ${heading}
+                </h1>
                 </div>
                 
-                <div>($date)</div>
+                <div>
+                    ${date}
+                </div>
                 
                 <div>Shabari Pragash</div>
                 
                 <div>
-                    <p>$(content)</p>
+                    <p>
+                    ${content}
+                    </p>
                 </div>
                 </div>
         </body>
