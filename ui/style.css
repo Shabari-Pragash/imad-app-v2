@@ -20,3 +20,11 @@ body {
     height: 200px;
 }
 
+.container
+        {
+            max-width:8000px;
+            margin:0 auto;
+            color:blue;
+            font-family:Calibri;
+            padding:1cm;
+        }
