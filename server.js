@@ -77,6 +77,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+//write this code here in order to overwrite next segment
+var count=0;
+app.get('/counter', function (req,res) {
+    count=count+1;
+    res.send(count.toString());
+});
+
 app.get('/:articleName',function(req,res) {
     var articleName=req.params.articleName;
     res.send(createTemplate(articles[articleName]));
@@ -97,11 +104,11 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var count=0;
+/*var count=0;
 app.get('/counter', function (req,res) {
     count=count+1;
     res.send(count.toString());
-});
+});*/
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
