@@ -29,11 +29,11 @@ click.onclick=function()
     {
         if(request.readystate===XMLHttpRequest.DONE)
         {
-            if(request.status===200)
-            {
+            //if(request.status===200)
+            //{
                 var count=request.responseText;
                 span.innerHTML=count.toString();
-            }
+            //}
         }
     }
     
