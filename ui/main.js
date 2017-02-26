@@ -3,7 +3,7 @@ console.log('Loaded the page!');
 var element=document.getElementById('madi');
 element.innerHTML="new value";
 
-var img=dociment.getElementById("img");
+var img=document.getElementById("img");
 
 move=0;
 function moveRight()
