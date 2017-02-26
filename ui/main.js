@@ -27,7 +27,7 @@ click.onclick=function()
     
     request.onreadystatechange=function()
     {
-        if(request.readystate==XMLHttpRequest.DONE)
+        if(request.readystate===XMLHttpRequest.DONE)
         {
             var count=request.responseText;
             span.innerHTML=count.toString();
