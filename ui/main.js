@@ -45,7 +45,7 @@ click.onclick=function()
 }
 
 var submit=document.getElementById("submit");
-var txt=document.getElementById("name").value;
+//var txt=document.getElementById("name").value;
 submit.onclick=function()
 {
     //Make request
@@ -73,6 +73,7 @@ submit.onclick=function()
     }
     
     //Make request
+    var txt=document.getElementById("name").value;
     request.open('GET','http://shabari-pragash.imad.hasura-app.io/submit?name='+txt,true);
     request.send(null);
     
