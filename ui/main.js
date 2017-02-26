@@ -23,7 +23,7 @@ var count=0;
 click.onclick=function()
 {
     //create request
-    request=new XMLHttpRequest();
+    var request=new XMLHttpRequest();
     
     request.onreadystatechange=function()
     {
