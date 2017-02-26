@@ -49,16 +49,33 @@ var txt=document.getElementById("name").value;
 submit.onclick=function()
 {
     //Make request
+    //create request
+    var request=new XMLHttpRequest();
     
-    //Capture request
-    var names=['name1','name2','name3','name4'];
-    var list='';
-    for(var i=0;i<names.length;i++)
+    request.onreadystatechange=function()
     {
-        list=list+'<li>'+names[i]+'</li>';
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status===200)
+            {
+                //Capture request
+                var names=request.responseText;
+                names=JSON.parse(names);
+                var list='';
+                for(var i=0;i<names.length;i++)
+                {
+                    list=list+'<li>'+names[i]+'</li>';
+                }
+                var ul=document.getElementById("ul");
+                ul.innerHTML=list;
+            }
+        }
     }
-    var ul=document.getElementById("ul");
-    ul.innerHTML=list;
+    
+    //Make request
+    request.open('GET','http://shabari-pragash.imad.hasura-app.io/submit?name='+txt,true);
+    request.send(null);
+    
 }
 
 
