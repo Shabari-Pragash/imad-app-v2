@@ -29,8 +29,11 @@ click.onclick=function()
     {
         if(request.readystate===XMLHttpRequest.DONE)
         {
-            var count=request.responseText;
-            span.innerHTML=count.toString();
+            if(request.status===200)
+            {
+                var count=request.responseText;
+                span.innerHTML=count.toString();
+            }
         }
     }
     
