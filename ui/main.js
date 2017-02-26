@@ -23,5 +23,5 @@ var count=0;
 click.onclick=function()
 {
     count=count+1;
-    span.innerHTML=count;
+    span.innerHTML=count.toString();
 }
