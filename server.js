@@ -104,6 +104,14 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+var list=[];
+app.get('/SUBMIT/:name',function(req,res){
+    var name=req.params.name;
+    list.push(name);
+    res.send(JSON.stringify(list));
+})
+
+
 /*var count=0;
 app.get('/counter', function (req,res) {
     count=count+1;
