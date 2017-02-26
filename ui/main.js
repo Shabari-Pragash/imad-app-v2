@@ -29,11 +29,11 @@ click.onclick=function()
     {
         if(request.readyState===XMLHttpRequest.DONE)
         {
-            //if(request.status===200)
-            //{
+            if(request.status===200)
+            {
                 var count=request.responseText;
                 span.innerHTML=count.toString();
-            //}
+            }
         }
     }
     
@@ -43,3 +43,39 @@ click.onclick=function()
     //count=count+1;
     //span.innerHTML=count.toString();
 }
+
+var submit=document.getElementById("submit");
+var txt=document.getElementById("search").value;
+submit.onclick=function()
+{
+    //Make request
+    
+    //Capture request
+    var names=['name1','name2','name3','name4'];
+    var list='';
+    for(var i=0;i<names.length;i++)
+    {
+        list=list+'<li>'+names[i]+'</li>';
+    }
+    var ul=document.getElementById("ul");
+    ul.innerHTML=list;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
