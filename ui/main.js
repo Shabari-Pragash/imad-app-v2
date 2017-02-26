@@ -16,3 +16,12 @@ img.onclick=function()
 {
     var interval=setInterval(moveRight,50);
 }
+
+var click=document.getElementById("click");
+var span=document.getElementById("span");
+var count=0;
+click.onclick=function()
+{
+    count=count+1;
+    span.innerHTML=count;
+}
