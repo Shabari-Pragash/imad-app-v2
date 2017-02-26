@@ -45,7 +45,7 @@ click.onclick=function()
 }
 
 var submit=document.getElementById("submit");
-var txt=document.getElementById("search").value;
+var txt=document.getElementById("name").value;
 submit.onclick=function()
 {
     //Make request
