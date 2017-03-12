@@ -86,14 +86,14 @@ function createTemplate(data)
 
 function hash(input,salt)
 {
-    var hasheddb=crypto.pbkdf2Sync(input,salt,10000,'sha512');
-    return hasheddb;
+    var hashdb=crypto.pbkdf2Sync(input,salt,10000,'sha512');
+    return hashdb.toString('hex');
 }
 
 app.get('/:name',function(req,res){
    var name=req.params.name;
    var hashdb=hash(name,'this-is-my-first-webapp');
-   res.send(hashdb.toString('hex'));
+   res.send(hashdb;
 });
 
 app.get('/', function (req, res) {
