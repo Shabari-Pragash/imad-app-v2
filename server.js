@@ -92,11 +92,12 @@ function hash(input,salt)
     return [salt,hashdb.toString('hex')].join('$');
 }
 
-/*app.get('/:name',function(req,res){
+app.get('/:name',function(req,res){
    var name=req.params.name;
-   var hashdb=hash(name,'this-is-my-first-webapp');
+   var salt=crypto.randomBytes(128).toString('hex');
+   var hashdb=hash(name,salt);
    res.send(hashdb);
-});*/
+});
 
 app.post('/createuser',function(req,res){
     var username=req.body.username;
