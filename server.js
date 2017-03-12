@@ -9,7 +9,7 @@ var Pool=require('pg').Pool;
 var config={
   user:'shabari-pragash',
   database:'shabari-pragash',
-  host:'shabari-pragash.imad.hasura-app.io',
+  host:'localhost',
   port:'5432',
   password:'db-shabari-pragash-9604'
 };
