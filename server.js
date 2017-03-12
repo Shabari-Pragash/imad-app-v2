@@ -11,7 +11,7 @@ var config={
   database:'shabari-pragash',
   host:'shabari-pragash.imad.hasura-app.io',
   port:'5432',
-  password:process.env.SHABARI_PRAGASH_PASSWORD
+  password:'db-shabari-pragash-9604'
 };
 var pool=new Pool(config);
 
