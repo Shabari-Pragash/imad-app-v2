@@ -126,7 +126,7 @@ app.post('/login',function(req,res){
             else
             {
                 var dbString=result.rows[0].password;
-                var salt=dbString.split('$')[0];
+                var salt=dbString.split('$')[2];
                 var hashdb=hash(password,salt);
                 if(dbString===hashdb)
                     res.send('User valid');
