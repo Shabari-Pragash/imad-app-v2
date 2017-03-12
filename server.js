@@ -157,12 +157,12 @@ app.get('/submit',function(req,res){
     res.send(JSON.stringify(list));
 });
 
-app.get('/:articleName',function(req,res) {
+/*app.get('/:articleName',function(req,res) {
     var articleName=req.params.articleName;
     res.send(createTemplate(articles[articleName]));
    //res.sendFile(path.join(__dirname,'ui','article-one.html'));
    //res.send('Article-one is served here');
-});
+});*/
 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
