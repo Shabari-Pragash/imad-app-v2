@@ -122,7 +122,7 @@ app.post('/login',function(req,res){
         else
         {
             if(result.rows.length===0)
-                res.status(404).send(err.toString());
+                res.status(404).send('User invalid');
             else
                 res.send('User valid');
         }    
