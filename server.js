@@ -121,11 +121,11 @@ app.post('/login',function(req,res){
         else
         {
             if(result.rows.length===0)
-                res.status(404).send('User invalid');
+                res.status(403).send('User invalid');
             else
             {
                 var dbString=result.rows[0].password;
-                var salt=dbString.split('$');
+                var salt=dbString.split('$')[0];
                 var hashdb=hash(password,salt);
                 if(dbString===hashdb)
                     res.send('User valid');
