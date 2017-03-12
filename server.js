@@ -6,7 +6,7 @@ var bodyparser=require('body-parser');
 
 var app = express();
 app.use(morgan('combined'));
-app.use(bosyparser.json());
+app.use(bodyparser.json());
 
 var Pool=require('pg').Pool;
 var config={
