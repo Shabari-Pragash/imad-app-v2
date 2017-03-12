@@ -86,7 +86,7 @@ function createTemplate(data)
 
 function hash(input,salt)
 {
-    var hashdb=crypto.pbkdf2Sync(input,salt,10000,'sha512');
+    var hashdb=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
     return hashdb.toString('hex');
 }
 
