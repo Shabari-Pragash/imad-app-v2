@@ -44,9 +44,9 @@ click.onclick=function()
     //span.innerHTML=count.toString();
 }
 
-var submit=document.getElementById("submit");
+var login=document.getElementById("login");
 //var txt=document.getElementById("name").value;
-submit.onclick=function()
+login.onclick=function()
 {
     //Make request
     //create request
@@ -77,7 +77,7 @@ submit.onclick=function()
     
 }
 
-var submit=document.getElementById("login");
+var submit=document.getElementById("submit");
 //var txt=document.getElementById("name").value;
 submit.onclick=function()
 {
