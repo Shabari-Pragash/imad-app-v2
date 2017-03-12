@@ -93,7 +93,7 @@ function hash(input,salt)
 app.get('/:name',function(req,res){
    var name=req.params.name;
    var hashdb=hash(name,'this-is-my-first-webapp');
-   res.send(hashdb;
+   res.send(hashdb);
 });
 
 app.get('/', function (req, res) {
