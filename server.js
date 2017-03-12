@@ -16,7 +16,7 @@ var config={
 };
 var pool=new Pool(config);
 
-//var articles= {
+/*var articles= {
 'article-one': {
     title:'Article-One',
     heading:'Article-One',
@@ -35,7 +35,7 @@ var pool=new Pool(config);
     date:'20 Feb 2017',
     content:'This is my third article'
     }
-};    
+}; */   
 
 function createTemplate(data)
 {
