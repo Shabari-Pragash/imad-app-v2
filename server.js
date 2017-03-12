@@ -87,18 +87,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-/*app.get('/test',function(req,res){
+app.get('/test',function(req,res){
    pool.query('SELECT * FROM ARTICLES',function(err,result){
       if(err)
         res.status(500).send(err.toString());
       else
         res.send(JSON.stringify(result.rows));
    }); 
-});*/
+});
 
 app.get('/articles/:articleName',function(req,res){
-   //pool.query("SELECT * FROM ARTICLES WHERE TITLE='" + req.params.articleName + "'",function(err,result){
-   pool.query("SELECT * FROM ARTICLES WHERE TITLE=$1",[req.params.articleName],function(req,res){
+   pool.query("SELECT * FROM ARTICLES WHERE TITLE='" + req.params.articleName + "'",function(err,result){
+   //pool.query("SELECT * FROM ARTICLES WHERE TITLE=$1",[req.params.articleName],function(req,res){
       if(err)
         res.status(500).send(err.toString());
       else{
