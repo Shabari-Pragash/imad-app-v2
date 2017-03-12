@@ -131,7 +131,7 @@ app.post('/login',function(req,res){
                 if(dbString===hashdb)
                     res.send('User valid');
                 else
-                    res.status(402).send('Usernamer/password invalid');
+                    res.status(403).send('Usernamer/password invalid');
             }
         }    
     });
