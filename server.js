@@ -97,8 +97,8 @@ app.get('/test',function(req,res){
 });
 
 app.get('/articles/:articleName',function(req,res){
-   pool.query("SELECT * FROM ARTICLES WHERE TITLE='" + req.params.articleName + "'",function(err,result){
-   //pool.query("SELECT * FROM ARTICLES WHERE TITLE=$1",[req.params.articleName],function(req,res){
+   //pool.query("SELECT * FROM ARTICLES WHERE TITLE='" + req.params.articleName + "'",function(err,result){
+   pool.query("SELECT * FROM ARTICLES WHERE TITLE=$1",[req.params.articleName],function(err,result){
       if(err)
         res.status(500).send(err.toString());
       else{
