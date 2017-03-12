@@ -9,9 +9,9 @@ var Pool=require('pg').Pool;
 var config={
   user:'shabari-pragash',
   database:'shabari-pragash',
-  host:'localhost',
+  host:'db.imad.hasura-app.io',
   port:'5432',
-  password:'db-shabari-pragash-9604'
+  password:process.env.DB_PASSWORD
 };
 var pool=new Pool(config);
 
