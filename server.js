@@ -2,9 +2,11 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto=require('crypto');
+var bodyparser=require('body-parser');
 
 var app = express();
 app.use(morgan('combined'));
+app.use(bosyparser.json());
 
 var Pool=require('pg').Pool;
 var config={
@@ -90,10 +92,23 @@ function hash(input,salt)
     return hashdb.toString('hex');
 }
 
-app.get('/:name',function(req,res){
+/*app.get('/:name',function(req,res){
    var name=req.params.name;
    var hashdb=hash(name,'this-is-my-first-webapp');
    res.send(hashdb);
+});*/
+
+app.post('/createuser',function(req,res){
+    var username=req.body.username;
+    var password=req.body.password;
+    var salt=crypto.randomBytes(128).toString('hex');
+    var hashdb=hash(password,salt);
+    pool.query("INSERT INTO user (username,password) VALUES($1,$2)",[username,hashdb],function(err,result){
+       if(err)
+            res.status(500).send(err.toString());
+        else
+            res.send('User created');
+    });
 });
 
 app.get('/', function (req, res) {
